@@ -1,0 +1,21 @@
+package com.app.bank.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+import com.app.bank.model.User;
+
+@RestController
+public class UserController {
+	
+	@Autowired 
+	RestTemplate restTemplate;
+	
+	@PostMapping("/account")
+	public User accountInfo(User user) {
+		return null;
+	}
+
+}

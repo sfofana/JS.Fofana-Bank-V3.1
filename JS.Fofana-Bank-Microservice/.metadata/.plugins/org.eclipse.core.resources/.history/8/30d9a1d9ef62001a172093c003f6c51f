@@ -1,0 +1,3 @@
+zuul.routes.deposit-service.url=http://localhost:9001
+zuul.routes.deposit-service.path=/deposit-service/**
+server.port=9000

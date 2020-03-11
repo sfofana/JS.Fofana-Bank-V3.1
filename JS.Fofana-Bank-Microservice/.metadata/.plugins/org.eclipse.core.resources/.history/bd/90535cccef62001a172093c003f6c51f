@@ -1,0 +1,2 @@
+#deposit-service.url=http://localhost:9001/deposit-service
+server.port=8090
