@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  connection: "http://localhost:9000/connection",
+  connection: "http://localhost:9000/auth-service/api/v1/connection",
   authUrl: "http://localhost:9000/auth-service/api/v1/login",
   accountUrl: "http://localhost:9000/account-service/api/v1/account",
   depositUrl: "http://localhost:9000/deposit-service/api/v1/deposit",
