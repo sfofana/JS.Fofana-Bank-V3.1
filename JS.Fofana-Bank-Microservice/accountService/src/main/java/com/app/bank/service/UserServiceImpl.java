@@ -17,19 +17,22 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User currentAcctInfo(User user, User deposit, User withdraw, User transfer) {
 		User current = userData.findById(user.getId()).get();
+		User updatedUser = current;
 		
-		current.getChecking().setAmount(
+		updatedUser.getChecking().setAmount(
+				current.getChecking().getAmount()+
 				deposit.getChecking().getAmount()+
 				withdraw.getChecking().getAmount()+
 				transfer.getChecking().getAmount()
 				);
-		current.getSaving().setAmount(
+		updatedUser.getSaving().setAmount(
+				current.getSaving().getAmount()+
 				deposit.getSaving().getAmount()+
 				withdraw.getSaving().getAmount()+
 				transfer.getSaving().getAmount()
 				);
 		
-		return current;
+		return updatedUser;
 	}
 
 }
