@@ -1,10 +1,12 @@
 package com.app.bank.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.app.bank.data.UserData;
 import com.app.bank.model.User;
 
+@Service
 public class UserServiceImpl implements UserService{
 
 	@Autowired

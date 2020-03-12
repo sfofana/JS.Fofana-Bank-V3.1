@@ -5,11 +5,11 @@
 export const environment = {
   production: false,
   connection: "http://localhost:9000/connection",
-  authUrl: "http://localhost:9000/auth-service",
-  accountUrl: "http://localhost:9000/account-service",
-  depositUrl: "http://localhost:9000/deposit-service",
-  withdrawUrl: "http://localhost:9000/withdraw-service",
-  transferUrl: "http://localhost:9000/transfer-service"
+  authUrl: "http://localhost:9000/auth-service/api/v1/login",
+  accountUrl: "http://localhost:9000/account-service/api/v1/account",
+  depositUrl: "http://localhost:9000/deposit-service/api/v1/deposit",
+  withdrawUrl: "http://localhost:9000/withdraw-service/api/v1/withdraw",
+  transferUrl: "http://localhost:9000/transfer-service/api/v1/transfer"
 };
 
 /*

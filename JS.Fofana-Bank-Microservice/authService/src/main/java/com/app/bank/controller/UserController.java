@@ -14,7 +14,7 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
-	@PostMapping("/login")
+	@PostMapping("/api/vi/login")
 	public User authentication(@RequestBody User user) {
 		return userService.authentication(user);
 	}
