@@ -70,8 +70,8 @@ public class AccountServiceApplication {
 				
 				User u2 = new User();
 				u2.setId(2);
-				u2.setFirstname("Sufyan");
-				u2.setLastname("Fofana");
+				u2.setFirstname("Zara");
+				u2.setLastname("Mansary");
 				u2.setEmail("system@gmail.com");
 				u2.setPassword("admin");
 				u2.setChecking(c2);

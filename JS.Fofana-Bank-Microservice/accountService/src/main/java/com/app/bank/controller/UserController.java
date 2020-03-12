@@ -1,7 +1,9 @@
 package com.app.bank.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -12,25 +14,32 @@ import com.app.bank.service.UserService;
 @RestController
 public class UserController {
 	
-	private String depositUrl = "http://localhost:9000/deposit-service/test/1";
+	private String depositUrl = "http://localhost:9000/deposit-service/api/v1/deposit";
+	private String withdrawUrl = "http://localhost:9000/withdraw-service/api/v1/withdraw";
+	private String transferUrl = "http://localhost:9000/transfer-service/api/v1/transfer";
+	private String testDepositUrl = "http://localhost:9000/deposit-service/test/1";
 	
 	@Autowired 
 	RestTemplate restTemplate;
 	@Autowired
 	UserService userService;
 	
-	@PostMapping("/account")
-	public User accountInfo(User user) {
-		User acctD = restTemplate.getForObject(depositUrl, User.class);
+	@PostMapping("/api/v1/account")
+	public User accountInfo(@RequestBody User user) {
+		String query = Integer.toString(user.getId());
+		HttpEntity<String> request = new HttpEntity<String>(user.toString());
+		User acctD = restTemplate.postForObject(depositUrl+query, request, User.class);
+		User acctW = restTemplate.postForObject(withdrawUrl+query, request, User.class);
+		User acctT = restTemplate.postForObject(transferUrl+query, request, User.class);
 		
-		return userService.currentAcctInfo(user, acctD, acctD, acctD);
+		return userService.currentAcctInfo(user, acctD, acctW, acctT);
 	}
 	
 	@GetMapping("/test")
 	public User test() {
 		User user = new User();
 		user.setId(1);
-		User acctD = restTemplate.getForObject(depositUrl, User.class);
+		User acctD = restTemplate.getForObject(testDepositUrl, User.class);
 		
 		return userService.currentAcctInfo(user, acctD, acctD, acctD);
 	}

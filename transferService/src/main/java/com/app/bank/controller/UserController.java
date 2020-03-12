@@ -11,18 +11,18 @@ import com.app.bank.service.UserService;
 
 @RestController
 public class UserController {
-	
+
 	@Autowired
 	UserService userService;
 	
-	@PostMapping("/api/v1/deposit")
-	public User currentDeposits(@RequestBody User user) {
-		return userService.getCurrentDeposits(user);
+	@PostMapping("/api/v1/transfer")
+	public User getTransfers(@RequestBody User user) {
+		return userService.getCurrentTransfers(user);
 	}
 	
-	@PutMapping("/api/v1/deposit")
-	public User deposit(@RequestBody User user) {
-		return userService.updateDeposit(user);
+	@PutMapping("/api/v1/transfer")
+	public User transfer(@RequestBody User user) {
+		return userService.updateTransfer(user);
 	}
-
+	
 }

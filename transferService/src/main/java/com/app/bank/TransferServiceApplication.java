@@ -3,7 +3,6 @@ package com.app.bank;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 
 import com.app.bank.data.CheckingData;
@@ -14,13 +13,12 @@ import com.app.bank.model.Saving;
 import com.app.bank.model.User;
 
 @SpringBootApplication
-@EnableEurekaClient
-public class DepositServiceApplication {
+public class TransferServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DepositServiceApplication.class, args);
+		SpringApplication.run(TransferServiceApplication.class, args);
 	}
-	
+
 	@Bean
 	public CommandLineRunner fillerData(
 			UserData userData,
@@ -74,6 +72,4 @@ public class DepositServiceApplication {
 			};
 		
 	}
-	
-
 }
