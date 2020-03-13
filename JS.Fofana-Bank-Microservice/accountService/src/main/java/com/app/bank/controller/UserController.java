@@ -26,11 +26,10 @@ public class UserController {
 	
 	@PostMapping("/api/v1/account")
 	public User accountInfo(@RequestBody User user) {
-		String query = Integer.toString(user.getId());
-		HttpEntity<String> request = new HttpEntity<String>(user.toString());
-		User acctD = restTemplate.postForObject(depositUrl+query, request, User.class);
-		User acctW = restTemplate.postForObject(withdrawUrl+query, request, User.class);
-		User acctT = restTemplate.postForObject(transferUrl+query, request, User.class);
+		HttpEntity<Object> request = new HttpEntity<Object>(user);
+		User acctD = restTemplate.postForObject(depositUrl, request, User.class);
+		User acctW = restTemplate.postForObject(withdrawUrl, request, User.class);
+		User acctT = restTemplate.postForObject(transferUrl, request, User.class);
 		
 		return userService.currentAcctInfo(user, acctD, acctW, acctT);
 	}
