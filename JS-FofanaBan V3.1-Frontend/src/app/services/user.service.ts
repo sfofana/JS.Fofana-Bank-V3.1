@@ -52,20 +52,20 @@ export class UserService {
 
   // Withdraw endpoints
   currentWithdraw(user:User): Observable<User> {
-    return this.http.post<User>(this.depositUrl, user);
+    return this.http.post<User>(this.withdrawUrl, user);
   }
 
   updateWithdraw(user:User): Observable<User> {
-    return this.http.put<User>(this.depositUrl, user);
+    return this.http.put<User>(this.withdrawUrl, user);
   }
 
   // Transfer endpoints
   currentTransfer(user:User): Observable<User> {
-    return this.http.post<User>(this.depositUrl, user);
+    return this.http.post<User>(this.transferUrl, user);
   }
 
   updateTransfer(user:User): Observable<User> {
-    return this.http.put<User>(this.depositUrl, user);
+    return this.http.put<User>(this.transferUrl, user);
   }
 
   getWidthdrawAmounts(){
