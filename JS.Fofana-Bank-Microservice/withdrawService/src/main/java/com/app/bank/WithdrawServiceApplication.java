@@ -30,25 +30,25 @@ public class WithdrawServiceApplication {
 				
 				Checking c1 = new Checking();
 				c1.setId(1);
-				c1.setName("Checking");
+				c1.setName("checking");
 				c1.setAmount(0);
 				checkingData.save(c1);
 				
 				Checking c2 = new Checking();
 				c2.setId(2);
-				c2.setName("Checking");
+				c2.setName("checking");
 				c2.setAmount(0);
 				checkingData.save(c2);
 				
 				Saving s1 = new Saving();
 				s1.setId(1);
-				s1.setName("Saving");
+				s1.setName("saving");
 				s1.setAmount(0);
 				savingData.save(s1);
 				
 				Saving s2 = new Saving();
 				s2.setId(2);
-				s2.setName("Saving");
+				s2.setName("saving");
 				s2.setAmount(0);
 				savingData.save(s2);
 				
