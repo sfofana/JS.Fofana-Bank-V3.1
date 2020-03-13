@@ -24,8 +24,6 @@ export class DepositComponent implements OnInit {
   }
 
   deposit(): void{
-    console.log(this.option);
-    console.dir(this.user);
     if(this.option == 'checking'){
       this.updateAmount = this.user.checking.amount + this.amount;
       this.user.checking.amount = this.updateAmount;
@@ -49,6 +47,10 @@ export class DepositComponent implements OnInit {
   select(option: any){
     this.option = option.target.value;
     console.log(this.option);
+    console.log(this.amount);
+    console.dir(this.user);
+    this.user.checking.amount = this.user.checking.amount + this.amount
+    console.log(this.user.checking.amount);
   }
 
   reset(){
