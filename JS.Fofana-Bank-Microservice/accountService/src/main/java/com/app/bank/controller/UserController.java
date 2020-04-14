@@ -1,6 +1,7 @@
 package com.app.bank.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,9 +15,13 @@ import com.app.bank.service.UserService;
 @RestController
 public class UserController {
 	
-	private String depositUrl = "http://localhost:9000/deposit-service/api/v1/deposit";
-	private String withdrawUrl = "http://localhost:9000/withdraw-service/api/v1/withdraw";
-	private String transferUrl = "http://localhost:9000/transfer-service/api/v1/transfer";
+	@Value("${depositUrl}")
+	private String depositUrl;
+	@Value("${withdrawUrl}")
+	private String withdrawUrl;
+	@Value("${transferUrl}")
+	private String transferUrl;
+	@Value("${depositUrl}")
 	private String testDepositUrl = "http://localhost:9000/deposit-service/test/1";
 	
 	@Autowired 
@@ -39,7 +44,6 @@ public class UserController {
 		User user = new User();
 		user.setId(1);
 		User acctD = restTemplate.getForObject(testDepositUrl, User.class);
-		
 		return userService.currentAcctInfo(user, acctD, acctD, acctD);
 	}
 
